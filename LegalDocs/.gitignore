@@ -4,7 +4,7 @@ node_modules/
 # Build output
 dist/
 
-# Environment files
+# Secrets
 .env
 .env.local
 .env.*.local
@@ -12,9 +12,9 @@ dist/
 # TypeScript build cache
 tsconfig.tsbuildinfo
 
-# Test files
+# Sample / test data
 test_contract.txt
 
 # OS
 .DS_Store
-Thumbs.db
+Thumbs.db

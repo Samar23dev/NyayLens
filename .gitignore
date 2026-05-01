@@ -13,30 +13,35 @@ desktop.ini
 # BACKEND (backend/)
 # ══════════════════════════════════════════════════════════════════════════════
 
-# Environment — contains API keys, NEVER commit
+# Secrets — NEVER commit
 backend/.env
 
-# Python bytecode
+# Python
 backend/__pycache__/
 backend/**/__pycache__/
 backend/*.pyc
 backend/**/*.pyc
+backend/*.pyo
+backend/**/*.pyo
 
 # Virtual environment
 backend/.venv/
 backend/venv/
 
-# uv lock (optional — uncomment to commit)
-# backend/uv.lock
-
-# Local vector store (large, regenerate with populate_precedents.py)
+# Local vector store (regenerate with scripts/populate_precedents.py)
 backend/data/chroma_db/
 
-# Local analysis cache (auto-generated)
+# Auto-generated analysis cache
 backend/data/analysis_cache/
 
 # Scratch / temp files
 backend/scratch/
+
+# Test scripts (dev only)
+backend/test_*.py
+
+# HuggingFace model cache if stored locally
+backend/.cache/
 
 # ══════════════════════════════════════════════════════════════════════════════
 # FRONTEND (LegalDocs/)
@@ -48,13 +53,30 @@ LegalDocs/node_modules/
 # Build output
 LegalDocs/dist/
 
-# Environment
+# Secrets
 LegalDocs/.env
 LegalDocs/.env.local
 LegalDocs/.env.*.local
 
-# TypeScript build info
+# TypeScript build cache
 LegalDocs/tsconfig.tsbuildinfo
 
-# Test contract file (sample data, not source code)
+# Sample / test data
 LegalDocs/test_contract.txt
+
+# ══════════════════════════════════════════════════════════════════════════════
+# DOCKER
+# ══════════════════════════════════════════════════════════════════════════════
+
+# Local override — machine-specific docker-compose settings
+docker-compose.override.yml
+
+# ══════════════════════════════════════════════════════════════════════════════
+# MISC
+# ══════════════════════════════════════════════════════════════════════════════
+
+# uv lock — committed for reproducibility, uncomment to ignore
+# backend/uv.lock
+
+# Antigravity AI workspace files
+.antigravityignore

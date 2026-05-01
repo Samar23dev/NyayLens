@@ -1,16 +1,28 @@
-# Environment & secrets
+# Secrets — NEVER commit
 .env
 
 # Python
 __pycache__/
+**/__pycache__/
 *.pyc
 *.pyo
+
+# Virtual environment
 .venv/
 venv/
 
-# Local data stores
+# Local data stores (use Docker volumes or regenerate locally)
 data/chroma_db/
 data/analysis_cache/
+
+# HuggingFace model cache
+.cache/
+
+# Scratch / temp
+scratch/
+
+# Test scripts
+test_*.py
 
 # IDE
 .vscode/
@@ -20,5 +32,5 @@ data/analysis_cache/
 .DS_Store
 Thumbs.db
 
-# UV lock (optional — some teams commit this)
+# uv lock — commit for reproducibility, uncomment to ignore
 # uv.lock
