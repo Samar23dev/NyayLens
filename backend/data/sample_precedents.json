@@ -1,0 +1,162 @@
+[
+  {
+    "id": "sc_2018_1",
+    "title": "Dharampal Satyapal Ltd. vs. Deputy Commissioner of Central Excise (2015)",
+    "court": "Supreme Court of India",
+    "year": 2015,
+    "summary": "The Supreme Court held that termination clauses in commercial contracts must provide reasonable notice period unless there is material breach. Immediate termination without notice is only permissible in cases of fraud or gross misconduct.",
+    "keywords": "termination, notice period, commercial contract, breach"
+  },
+  {
+    "id": "sc_2019_2",
+    "title": "Afcons Infrastructure Ltd. vs. Cherian Varkey Construction Co. (2010)",
+    "court": "Supreme Court of India",
+    "year": 2010,
+    "summary": "Arbitration clauses in contracts are enforceable and parties cannot unilaterally terminate arbitration proceedings. The court emphasized the importance of alternative dispute resolution mechanisms in commercial contracts.",
+    "keywords": "arbitration, dispute resolution, contract enforcement"
+  },
+  {
+    "id": "sc_2017_3",
+    "title": "Bharat Sanchar Nigam Ltd. vs. Nortel Networks India Pvt. Ltd. (2021)",
+    "court": "Supreme Court of India",
+    "year": 2021,
+    "summary": "Force majeure clauses must be specifically invoked and proven. General economic hardship or market changes do not automatically trigger force majeure provisions unless explicitly stated in the contract.",
+    "keywords": "force majeure, contract performance, impossibility"
+  },
+  {
+    "id": "sc_2016_4",
+    "title": "Kailash Nath Associates vs. Delhi Development Authority (2015)",
+    "court": "Supreme Court of India",
+    "year": 2015,
+    "summary": "Liquidated damages clauses are enforceable if they represent a genuine pre-estimate of loss. Penalty clauses that are disproportionate to actual damages may be reduced by courts under Section 74 of the Indian Contract Act.",
+    "keywords": "liquidated damages, penalty, breach of contract"
+  },
+  {
+    "id": "sc_2020_5",
+    "title": "Ssangyong Engineering & Construction Co. Ltd. vs. National Highways Authority of India (2019)",
+    "court": "Supreme Court of India",
+    "year": 2019,
+    "summary": "Courts have limited scope to interfere with arbitral awards. The judgment clarified the grounds for setting aside arbitration awards and emphasized party autonomy in commercial disputes.",
+    "keywords": "arbitration award, judicial review, commercial dispute"
+  },
+  {
+    "id": "delhi_hc_2018_1",
+    "title": "Zee Entertainment Enterprises Ltd. vs. Gajendra Singh (2018)",
+    "court": "Delhi High Court",
+    "year": 2018,
+    "summary": "Non-compete clauses in employment contracts must be reasonable in scope, duration, and geographical area. Overly broad non-compete clauses that prevent an employee from earning livelihood are unenforceable.",
+    "keywords": "non-compete, employment contract, restraint of trade"
+  },
+  {
+    "id": "bombay_hc_2019_1",
+    "title": "Percept D'Mark (India) Pvt. Ltd. vs. Zaheer Khan (2006)",
+    "court": "Bombay High Court",
+    "year": 2006,
+    "summary": "Confidentiality clauses in contracts are enforceable through injunctions. The court granted an injunction preventing disclosure of confidential business information post-termination of contract.",
+    "keywords": "confidentiality, trade secrets, injunction"
+  },
+  {
+    "id": "sc_2015_6",
+    "title": "Rashtriya Ispat Nigam Ltd. vs. Dewan Chand Ram Saran (2012)",
+    "court": "Supreme Court of India",
+    "year": 2012,
+    "summary": "Indemnity clauses must be clear and unambiguous. A party cannot be held liable for indemnification unless the clause explicitly covers the specific type of loss or damage claimed.",
+    "keywords": "indemnity, liability, contract interpretation"
+  },
+  {
+    "id": "sc_2021_7",
+    "title": "Haldia Refinery vs. Hindustan Petroleum Corporation Ltd. (2022)",
+    "court": "Supreme Court of India",
+    "year": 2022,
+    "summary": "Payment terms in commercial contracts must be honored. Unilateral withholding of payments without contractual basis amounts to breach. Interest on delayed payments is recoverable.",
+    "keywords": "payment dispute, breach, interest on delayed payment"
+  },
+  {
+    "id": "karnataka_hc_2017_1",
+    "title": "Wipro Ltd. vs. Beckman Coulter International S.A. (2006)",
+    "court": "Karnataka High Court",
+    "year": 2006,
+    "summary": "Service level agreements (SLAs) in IT contracts are enforceable. Failure to meet SLA commitments can result in damages or termination rights for the aggrieved party.",
+    "keywords": "service agreement, SLA, IT contract, performance standards"
+  },
+  {
+    "id": "sc_2014_8",
+    "title": "Enercon (India) Ltd. vs. Enercon GmbH (2014)",
+    "court": "Supreme Court of India",
+    "year": 2014,
+    "summary": "Intellectual property clauses in technology transfer agreements must clearly define ownership rights. Ambiguous IP clauses will be interpreted against the party that drafted the contract.",
+    "keywords": "intellectual property, technology transfer, ownership rights"
+  },
+  {
+    "id": "delhi_hc_2020_2",
+    "title": "Amway India Enterprises Pvt. Ltd. vs. Ravindranath Rao (2020)",
+    "court": "Delhi High Court",
+    "year": 2020,
+    "summary": "Termination of distributorship agreements requires compliance with contractual notice periods. Immediate termination without cause violates principles of natural justice and contract law.",
+    "keywords": "distributorship, termination, notice requirement"
+  },
+  {
+    "id": "sc_2013_9",
+    "title": "Bharat Petroleum Corporation Ltd. vs. Great Eastern Shipping Co. Ltd. (2008)",
+    "court": "Supreme Court of India",
+    "year": 2008,
+    "summary": "Frustration of contract doctrine applies when performance becomes impossible due to unforeseen circumstances. However, mere difficulty or increased cost does not constitute frustration.",
+    "keywords": "frustration, impossibility, contract discharge"
+  },
+  {
+    "id": "bombay_hc_2016_2",
+    "title": "Tata Consultancy Services Ltd. vs. Cyrus Investments Pvt. Ltd. (2016)",
+    "court": "Bombay High Court",
+    "year": 2016,
+    "summary": "Non-solicitation clauses preventing former employees from soliciting clients are enforceable if reasonable. The clause must balance employer's legitimate business interests with employee's right to work.",
+    "keywords": "non-solicitation, employment, client protection"
+  },
+  {
+    "id": "sc_2012_10",
+    "title": "Chloro Controls India Pvt. Ltd. vs. Severn Trent Water Purification Inc. (2013)",
+    "court": "Supreme Court of India",
+    "year": 2013,
+    "summary": "Jurisdiction clauses in international contracts are generally enforceable. Indian courts will respect choice of foreign jurisdiction unless it violates public policy or causes manifest injustice.",
+    "keywords": "jurisdiction, international contract, choice of law"
+  },
+  {
+    "id": "delhi_hc_2015_3",
+    "title": "Bharti Airtel Ltd. vs. Reliance Communications Ltd. (2015)",
+    "court": "Delhi High Court",
+    "year": 2015,
+    "summary": "Exclusivity clauses in commercial agreements must be clearly defined. Breach of exclusivity provisions entitles the aggrieved party to damages and potential termination rights.",
+    "keywords": "exclusivity, breach, commercial agreement"
+  },
+  {
+    "id": "sc_2011_11",
+    "title": "Larsen & Toubro Ltd. vs. State of Gujarat (2013)",
+    "court": "Supreme Court of India",
+    "year": 2013,
+    "summary": "Extension of time clauses in construction contracts must be invoked properly. Contractors are entitled to time extensions for delays caused by employer or force majeure events.",
+    "keywords": "construction contract, time extension, delay"
+  },
+  {
+    "id": "madras_hc_2018_1",
+    "title": "Infosys Technologies Ltd. vs. Sushil Kumar Agarwal (2018)",
+    "court": "Madras High Court",
+    "year": 2018,
+    "summary": "Garden leave clauses in employment contracts are enforceable. Employers can place employees on paid leave during notice period to protect confidential information and client relationships.",
+    "keywords": "garden leave, employment, notice period"
+  },
+  {
+    "id": "sc_2010_12",
+    "title": "Nabha Power Ltd. vs. Punjab State Power Corporation Ltd. (2018)",
+    "court": "Supreme Court of India",
+    "year": 2018,
+    "summary": "Change in law clauses in power purchase agreements are enforceable. Parties can claim compensation for increased costs due to regulatory or legislative changes if contract provides for it.",
+    "keywords": "change in law, power purchase agreement, compensation"
+  },
+  {
+    "id": "delhi_hc_2019_4",
+    "title": "Amazon Seller Services Pvt. Ltd. vs. Amway India Enterprises Pvt. Ltd. (2019)",
+    "court": "Delhi High Court",
+    "year": 2019,
+    "summary": "E-commerce platform agreements must clearly define liability limitations. Platforms cannot be held liable for third-party seller actions unless they have actual knowledge of infringement.",
+    "keywords": "e-commerce, platform liability, third-party sellers"
+  }
+]

@@ -1,0 +1,302 @@
+[
+  {
+    "id": "bns_316",
+    "code": "BNS 316",
+    "title": "Punishment for cheating",
+    "section": "Section 316",
+    "body": "BNS",
+    "description": "Whoever cheats shall be punished with imprisonment of either description for a term which may extend to one year, or with fine, or with both.",
+    "keywords": ["cheating", "fraud", "deception", "dishonest inducement"],
+    "relevance_threshold": 0.6
+  },
+  {
+    "id": "bns_318",
+    "code": "BNS 318",
+    "title": "Cheating with knowledge that wrongful loss may ensue",
+    "section": "Section 318",
+    "body": "BNS",
+    "description": "Whoever cheats with the knowledge that he is likely thereby to cause wrongful loss to a person whose interest in the transaction to which the cheating relates, he was bound, either by law, or by a legal contract, to protect.",
+    "keywords": ["cheating", "wrongful loss", "breach of trust", "fiduciary duty"],
+    "relevance_threshold": 0.65
+  },
+  {
+    "id": "bns_405",
+    "code": "BNS 405",
+    "title": "Criminal breach of trust",
+    "section": "Section 405",
+    "body": "BNS",
+    "description": "Whoever, being in any manner entrusted with property, or with any dominion over property, dishonestly misappropriates or converts to his own use that property, or dishonestly uses or disposes of that property in violation of any direction of law prescribing the mode in which such trust is to be discharged, or of any legal contract, express or implied, which he has made touching the discharge of such trust, or wilfully suffers any other person so to do, commits criminal breach of trust.",
+    "keywords": ["breach of trust", "misappropriation", "entrustment", "fiduciary"],
+    "relevance_threshold": 0.7
+  },
+  {
+    "id": "contract_act_10",
+    "code": "Contract Act Section 10",
+    "title": "What agreements are contracts",
+    "section": "Section 10",
+    "body": "Indian Contract Act",
+    "description": "All agreements are contracts if they are made by the free consent of parties competent to contract, for a lawful consideration and with a lawful object, and are not hereby expressly declared to be void.",
+    "keywords": ["valid contract", "free consent", "competent parties", "lawful consideration", "lawful object"],
+    "relevance_threshold": 0.5
+  },
+  {
+    "id": "contract_act_23",
+    "code": "Contract Act Section 23",
+    "title": "What consideration and objects are lawful and what not",
+    "section": "Section 23",
+    "body": "Indian Contract Act",
+    "description": "The consideration or object of an agreement is lawful, unless it is forbidden by law; or is of such a nature that, if permitted, it would defeat the provisions of any law; or is fraudulent; or involves or implies injury to the person or property of another; or the Court regards it as immoral, or opposed to public policy.",
+    "keywords": ["unlawful consideration", "illegal object", "public policy", "immoral", "fraudulent"],
+    "relevance_threshold": 0.65
+  },
+  {
+    "id": "contract_act_27",
+    "code": "Contract Act Section 27",
+    "title": "Agreement in restraint of trade void",
+    "section": "Section 27",
+    "body": "Indian Contract Act",
+    "description": "Every agreement by which anyone is restrained from exercising a lawful profession, trade or business of any kind, is to that extent void.",
+    "keywords": ["restraint of trade", "non-compete", "restriction", "profession", "business"],
+    "relevance_threshold": 0.75
+  },
+  {
+    "id": "contract_act_37",
+    "code": "Contract Act Section 37",
+    "title": "Obligation of parties to contracts",
+    "section": "Section 37",
+    "body": "Indian Contract Act",
+    "description": "The parties to a contract must either perform, or offer to perform, their respective promises, unless such performance is dispensed with or excused under the provisions of this Act, or of any other law.",
+    "keywords": ["performance", "obligation", "duty to perform", "contract execution"],
+    "relevance_threshold": 0.6
+  },
+  {
+    "id": "contract_act_56",
+    "code": "Contract Act Section 56",
+    "title": "Agreement to do impossible act",
+    "section": "Section 56",
+    "body": "Indian Contract Act",
+    "description": "An agreement to do an act impossible in itself is void. A contract to do an act which, after the contract is made, becomes impossible, or, by reason of some event which the promisor could not prevent, unlawful, becomes void when the act becomes impossible or unlawful.",
+    "keywords": ["impossibility", "frustration", "force majeure", "supervening impossibility"],
+    "relevance_threshold": 0.7
+  },
+  {
+    "id": "contract_act_73",
+    "code": "Contract Act Section 73",
+    "title": "Compensation for loss or damage caused by breach of contract",
+    "section": "Section 73",
+    "body": "Indian Contract Act",
+    "description": "When a contract has been broken, the party who suffers by such breach is entitled to receive, from the party who suffers by such breach is entitled to receive, from the party who has broken the contract, compensation for any loss or damage caused to him thereby, which naturally arose in the usual course of things from such breach, or which the parties knew, when they made the contract, to be likely to result from the breach of it.",
+    "keywords": ["breach", "damages", "compensation", "loss", "remedy", "terminate", "termination", "without notice"],
+    "relevance_threshold": 0.3
+  },
+  {
+    "id": "contract_act_74",
+    "code": "Contract Act Section 74",
+    "title": "Compensation for breach of contract where penalty stipulated for",
+    "section": "Section 74",
+    "body": "Indian Contract Act",
+    "description": "When a contract has been broken, if a sum is named in the contract as the amount to be paid in case of such breach, or if the contract contains any other stipulation by way of penalty, the party complaining of the breach is entitled, whether or not actual damage or loss is proved to have been caused thereby, to receive from the party who has broken the contract reasonable compensation not exceeding the amount so named or, as the case may be, the penalty stipulated for.",
+    "keywords": ["penalty", "liquidated damages", "stipulated sum", "reasonable compensation"],
+    "relevance_threshold": 0.75
+  },
+  {
+    "id": "contract_act_124",
+    "code": "Contract Act Section 124",
+    "title": "Contract of indemnity defined",
+    "section": "Section 124",
+    "body": "Indian Contract Act",
+    "description": "A contract by which one party promises to save the other from loss caused to him by the conduct of the promisor himself, or by the conduct of any other person, is called a contract of indemnity.",
+    "keywords": ["indemnity", "indemnification", "save from loss", "hold harmless"],
+    "relevance_threshold": 0.8
+  },
+  {
+    "id": "contract_act_126",
+    "code": "Contract Act Section 126",
+    "title": "Contract of guarantee",
+    "section": "Section 126",
+    "body": "Indian Contract Act",
+    "description": "A contract of guarantee is a contract to perform the promise, or discharge the liability, of a third person in case of his default. The person who gives the guarantee is called the surety; the person in respect of whose default the guarantee is given is called the principal debtor, and the person to whom the guarantee is given is called the creditor.",
+    "keywords": ["guarantee", "surety", "principal debtor", "creditor", "default"],
+    "relevance_threshold": 0.75
+  },
+  {
+    "id": "sebi_insider_trading",
+    "code": "SEBI (Prohibition of Insider Trading) Regulations, 2015",
+    "title": "Prohibition of insider trading",
+    "section": "Regulation 4",
+    "body": "SEBI",
+    "description": "No insider shall trade in securities that are listed or proposed to be listed on a stock exchange when in possession of unpublished price sensitive information.",
+    "keywords": ["insider trading", "unpublished information", "price sensitive", "securities"],
+    "relevance_threshold": 0.8
+  },
+  {
+    "id": "sebi_disclosure",
+    "code": "SEBI (Listing Obligations and Disclosure Requirements) Regulations, 2015",
+    "title": "Disclosure requirements",
+    "section": "Regulation 30",
+    "body": "SEBI",
+    "description": "Listed entity shall make disclosures of events or information which are material in nature and which may have bearing on the performance/operations of the listed entity.",
+    "keywords": ["disclosure", "material events", "listed entity", "transparency"],
+    "relevance_threshold": 0.7
+  },
+  {
+    "id": "sebi_portfolio_manager",
+    "code": "SEBI (Portfolio Managers) Regulations, 2020",
+    "title": "Portfolio management services",
+    "section": "Regulation 22",
+    "body": "SEBI",
+    "description": "Portfolio manager shall enter into an agreement with the client specifying the terms and conditions including the nature of portfolio management services, fees, expenses, and termination clauses.",
+    "keywords": ["portfolio management", "investment agreement", "client agreement", "fees"],
+    "relevance_threshold": 0.75
+  },
+  {
+    "id": "rbi_loan_agreement",
+    "code": "RBI Master Direction on Loan System for Deployment of Funds",
+    "title": "Loan agreement requirements",
+    "section": "Para 3",
+    "body": "RBI",
+    "description": "All loan agreements shall clearly specify the terms including interest rate, repayment schedule, security, default clauses, and prepayment terms.",
+    "keywords": ["loan agreement", "interest rate", "repayment", "default", "security"],
+    "relevance_threshold": 0.75
+  },
+  {
+    "id": "rbi_interest_rate",
+    "code": "RBI Guidelines on Interest Rates on Advances",
+    "title": "Interest rate on loans",
+    "section": "Para 2",
+    "body": "RBI",
+    "description": "Banks are free to determine their lending rates. However, the interest rates charged should be transparent and disclosed to borrowers upfront.",
+    "keywords": ["interest rate", "lending rate", "transparency", "disclosure"],
+    "relevance_threshold": 0.7
+  },
+  {
+    "id": "rbi_recovery",
+    "code": "RBI Guidelines on Recovery of Loans",
+    "title": "Recovery procedures",
+    "section": "Para 5",
+    "body": "RBI",
+    "description": "Banks shall follow fair practices in recovery of loans and shall not resort to undue harassment or coercion.",
+    "keywords": ["recovery", "loan recovery", "fair practices", "harassment"],
+    "relevance_threshold": 0.7
+  },
+  {
+    "id": "companies_act_166",
+    "code": "Companies Act Section 166",
+    "title": "Duties of directors",
+    "section": "Section 166",
+    "body": "Companies Act",
+    "description": "A director of a company shall act in good faith in order to promote the objects of the company for the benefit of its members as a whole, and in the best interests of the company, its employees, the shareholders, the community and for the protection of environment.",
+    "keywords": ["director duties", "fiduciary duty", "good faith", "best interests"],
+    "relevance_threshold": 0.65
+  },
+  {
+    "id": "companies_act_188",
+    "code": "Companies Act Section 188",
+    "title": "Related party transactions",
+    "section": "Section 188",
+    "body": "Companies Act",
+    "description": "Except with the consent of the Board of Directors given by a resolution at a meeting of the Board and subject to such conditions as may be prescribed, no company shall enter into any contract or arrangement with a related party.",
+    "keywords": ["related party", "conflict of interest", "board approval", "disclosure"],
+    "relevance_threshold": 0.75
+  },
+  {
+    "id": "companies_act_230",
+    "code": "Companies Act Section 230",
+    "title": "Power to compromise or make arrangements with creditors and members",
+    "section": "Section 230",
+    "body": "Companies Act",
+    "description": "Where a compromise or arrangement is proposed between a company and its creditors or any class of them, or between the company and its members or any class of them, the Tribunal may order a meeting of the creditors or class of creditors, or of the members or class of members.",
+    "keywords": ["compromise", "arrangement", "creditors", "restructuring"],
+    "relevance_threshold": 0.7
+  },
+  {
+    "id": "it_act_10a",
+    "code": "IT Act Section 10A",
+    "title": "Validity of contracts formed through electronic means",
+    "section": "Section 10A",
+    "body": "IT Act",
+    "description": "Where in a contract formation, the communication of proposals, the acceptance of proposals, the revocation of proposals and acceptances, as the case may be, are expressed in electronic form or by means of an electronic record, such contract shall not be deemed to be unenforceable solely on the ground that such electronic form or means was used for that purpose.",
+    "keywords": ["electronic contract", "digital agreement", "e-commerce", "online contract"],
+    "relevance_threshold": 0.75
+  },
+  {
+    "id": "it_act_3",
+    "code": "IT Act Section 3",
+    "title": "Authentication of electronic records",
+    "section": "Section 3",
+    "body": "IT Act",
+    "description": "Subject to the provisions of this section any subscriber may authenticate an electronic record by affixing his digital signature.",
+    "keywords": ["digital signature", "authentication", "electronic record", "verification"],
+    "relevance_threshold": 0.7
+  },
+  {
+    "id": "it_act_43",
+    "code": "IT Act Section 43",
+    "title": "Penalty and compensation for damage to computer, computer system, etc.",
+    "section": "Section 43",
+    "body": "IT Act",
+    "description": "If any person without permission of the owner or any other person who is in charge of a computer, computer system or computer network, causes damage or disruption, he shall be liable to pay damages by way of compensation to the person so affected.",
+    "keywords": ["computer damage", "unauthorized access", "cyber security", "data breach"],
+    "relevance_threshold": 0.75
+  },
+  {
+    "id": "it_act_72",
+    "code": "IT Act Section 72",
+    "title": "Breach of confidentiality and privacy",
+    "section": "Section 72",
+    "body": "IT Act",
+    "description": "Save as otherwise provided in this Act or any other law for the time being in force, any person who, in pursuance of any of the powers conferred under this Act, rules or regulations made thereunder, has secured access to any electronic record, book, register, correspondence, information, document or other material without the consent of the person concerned discloses such material to any other person shall be punished with imprisonment for a term which may extend to two years, or with fine which may extend to one lakh rupees, or with both.",
+    "keywords": ["confidentiality", "privacy", "data protection", "unauthorized disclosure"],
+    "relevance_threshold": 0.8
+  },
+  {
+    "id": "arbitration_act_7",
+    "code": "Arbitration and Conciliation Act Section 7",
+    "title": "Arbitration agreement",
+    "section": "Section 7",
+    "body": "Arbitration Act",
+    "description": "An arbitration agreement is an agreement by the parties to submit to arbitration all or certain disputes which have arisen or which may arise between them in respect of a defined legal relationship, whether contractual or not.",
+    "keywords": ["arbitration", "arbitration clause", "dispute resolution", "arbitration agreement"],
+    "relevance_threshold": 0.8
+  },
+  {
+    "id": "arbitration_act_34",
+    "code": "Arbitration and Conciliation Act Section 34",
+    "title": "Application for setting aside arbitral award",
+    "section": "Section 34",
+    "body": "Arbitration Act",
+    "description": "Recourse to a Court against an arbitral award may be made only by an application for setting aside such award in accordance with sub-section (2) and sub-section (3).",
+    "keywords": ["arbitral award", "setting aside", "judicial review", "challenge"],
+    "relevance_threshold": 0.75
+  },
+  {
+    "id": "consumer_protection_unfair",
+    "code": "Consumer Protection Act Section 2(47)",
+    "title": "Unfair contract",
+    "section": "Section 2(47)",
+    "body": "Consumer Protection Act",
+    "description": "Unfair contract means a contract between a manufacturer or trader or service provider on one hand, and a consumer on the other, having such terms which cause a significant change in the rights of the consumer, including but not limited to: (a) requiring manifestly excessive security deposits to be given by a consumer for the performance of contractual obligations.",
+    "keywords": ["unfair contract", "consumer rights", "unfair terms", "one-sided"],
+    "relevance_threshold": 0.75
+  },
+  {
+    "id": "specific_relief_10",
+    "code": "Specific Relief Act Section 10",
+    "title": "Cases in which specific performance of contract enforceable",
+    "section": "Section 10",
+    "body": "Specific Relief Act",
+    "description": "Except as otherwise provided in this Chapter, the specific performance of any contract may, in the discretion of the court, be enforced when the act agreed to be done is such that compensation in money for its non-performance would not afford adequate relief.",
+    "keywords": ["specific performance", "enforcement", "remedy", "injunction"],
+    "relevance_threshold": 0.7
+  },
+  {
+    "id": "limitation_act_3",
+    "code": "Limitation Act Section 3",
+    "title": "Bar of limitation",
+    "section": "Section 3",
+    "body": "Limitation Act",
+    "description": "Subject to the provisions contained in sections 4 to 24 (inclusive), every suit instituted, appeal preferred, and application made after the prescribed period shall be dismissed although limitation has not been set up as a defence.",
+    "keywords": ["limitation period", "time bar", "prescription", "statute of limitations"],
+    "relevance_threshold": 0.65
+  }
+]

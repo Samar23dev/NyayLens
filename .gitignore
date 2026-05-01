@@ -1,0 +1,60 @@
+# ── OS ────────────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── IDE ───────────────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ══════════════════════════════════════════════════════════════════════════════
+# BACKEND (backend/)
+# ══════════════════════════════════════════════════════════════════════════════
+
+# Environment — contains API keys, NEVER commit
+backend/.env
+
+# Python bytecode
+backend/__pycache__/
+backend/**/__pycache__/
+backend/*.pyc
+backend/**/*.pyc
+
+# Virtual environment
+backend/.venv/
+backend/venv/
+
+# uv lock (optional — uncomment to commit)
+# backend/uv.lock
+
+# Local vector store (large, regenerate with populate_precedents.py)
+backend/data/chroma_db/
+
+# Local analysis cache (auto-generated)
+backend/data/analysis_cache/
+
+# Scratch / temp files
+backend/scratch/
+
+# ══════════════════════════════════════════════════════════════════════════════
+# FRONTEND (LegalDocs/)
+# ══════════════════════════════════════════════════════════════════════════════
+
+# Dependencies
+LegalDocs/node_modules/
+
+# Build output
+LegalDocs/dist/
+
+# Environment
+LegalDocs/.env
+LegalDocs/.env.local
+LegalDocs/.env.*.local
+
+# TypeScript build info
+LegalDocs/tsconfig.tsbuildinfo
+
+# Test contract file (sample data, not source code)
+LegalDocs/test_contract.txt

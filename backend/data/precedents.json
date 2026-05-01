@@ -1,0 +1,34 @@
+[
+  {
+    "id": "prec-001",
+    "title": "TechCorp Solutions v. Doe (2018)",
+    "court": "Supreme Court of India",
+    "year": 2018,
+    "summary": "The court ruled that unlimited liability clauses in standard employment contracts are unconscionable and unenforceable under Section 23 of the Indian Contract Act.",
+    "keywords": "unlimited liability, employment, enforceability, unconscionable"
+  },
+  {
+    "id": "prec-002",
+    "title": "State Bank v. Sharma Enterprises (2020)",
+    "court": "Delhi High Court",
+    "year": 2020,
+    "summary": "Held that immediate termination without notice in financial agreements violates natural justice unless a material, incurable breach has occurred.",
+    "keywords": "termination, notice, financial, natural justice, breach"
+  },
+  {
+    "id": "prec-003",
+    "title": "Global Tech v. Innovate Pvt Ltd (2021)",
+    "court": "Bombay High Court",
+    "year": 2021,
+    "summary": "Established that broad, perpetual non-compete clauses post-termination are void under Section 27 of the Indian Contract Act.",
+    "keywords": "non-compete, perpetual, void, section 27"
+  },
+  {
+    "id": "prec-004",
+    "title": "Rao v. Gupta (2015)",
+    "court": "Madras High Court",
+    "year": 2015,
+    "summary": "Liquidated damages must represent a genuine pre-estimate of loss. Penalty clauses with exorbitant arbitrary amounts are not enforceable.",
+    "keywords": "liquidated damages, penalty, exorbitant, pre-estimate"
+  }
+]
