@@ -3,6 +3,11 @@
 Thumbs.db
 desktop.ini
 
+# Explicitly track demo assets (GIF, screenshots) for README
+!assets/
+!assets/**
+!Files/demo.gif
+
 # ── IDE ───────────────────────────────────────────────────────────────────────
 .vscode/
 .idea/

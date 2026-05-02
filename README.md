@@ -13,6 +13,10 @@
 
 NyayaLens is a full-stack platform that ingests Indian legal contracts in any of 22 official languages and returns clause-level risk scores, SHAP word attributions, regulatory citations, case-law precedents, AI-generated safer rewrites, and cross-clause conflict detection — all in one API call.
 
+<br/>
+
+![NyayaLens Demo](Files/demo.gif)
+
 </div>
 
 ---
