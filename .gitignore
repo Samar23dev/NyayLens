@@ -6,7 +6,7 @@ desktop.ini
 # Explicitly track demo assets (GIF, screenshots) for README
 !assets/
 !assets/**
-!Files/demo.gif
+!Files/demo.mp4
 
 # ── IDE ───────────────────────────────────────────────────────────────────────
 .vscode/
