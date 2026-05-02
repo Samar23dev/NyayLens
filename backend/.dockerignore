@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Environment & secrets
+.env
+*.env
+
+# Heavy runtime data (use Docker volumes instead)
+data/chroma_db/
+data/analysis_cache/
+
+# HuggingFace model cache
+.cache/

@@ -89,5 +89,33 @@ export const api = {
     })
     if (!response.ok) throw new Error('Approval failed. Please try again.')
     return response.json()
-  }
+  },
+
+  /**
+   * Semantic search across all MongoDB-cached documents.
+   * Returns ranked results with matched clause snippets and relevance scores.
+   */
+  searchDocuments: async (query: string, topK = 5): Promise<{
+    query: string
+    results: Array<{
+      documentId: string
+      fileName: string
+      overallRiskScore: number
+      uploadedAt: string
+      language: { code: string; name: string; nativeName: string }
+      relevanceScore: number
+      matchedClauseTitle: string
+      matchedSnippet: string
+      clauseCount: number
+      riskBreakdown: { high: number; medium: number; low: number; safe: number }
+    }>
+  }> => {
+    const response = await fetch(`${API_BASE}/search`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ query, top_k: topK }),
+    })
+    if (!response.ok) throw new Error('Search failed. Please try again.')
+    return response.json()
+  },
 }

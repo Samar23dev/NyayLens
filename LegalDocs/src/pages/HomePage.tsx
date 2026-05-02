@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react'
+import { useState, useCallback, useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useDropzone } from 'react-dropzone'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -103,6 +103,19 @@ export function HomePage() {
   const onDrop = useCallback((accepted: File[]) => {
     if (accepted.length) setFile(accepted[0])
   }, [])
+
+  // Close language picker on click-outside
+  const langPickerRef = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    if (!showLangPicker) return
+    const handler = (e: MouseEvent) => {
+      if (langPickerRef.current && !langPickerRef.current.contains(e.target as Node)) {
+        setShowLangPicker(false)
+      }
+    }
+    document.addEventListener('mousedown', handler)
+    return () => document.removeEventListener('mousedown', handler)
+  }, [showLangPicker])
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
@@ -218,7 +231,7 @@ export function HomePage() {
                     </p>
                   </div>
                   <button
-                    onClick={e => { e.stopPropagation(); setFile(null) }}
+                    onClick={e => { e.stopPropagation(); setFile(null); setShowLangPicker(false) }}
                     className="text-xs text-muted-foreground hover:text-foreground underline"
                   >
                     Remove &amp; choose another
@@ -256,10 +269,10 @@ export function HomePage() {
           <AnimatePresence>
             {file && (
               <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: 'auto' }}
-                exit={{ opacity: 0, height: 0 }}
-                className="overflow-hidden"
+                initial={{ opacity: 0, scaleY: 0.95, y: -6 }}
+                animate={{ opacity: 1, scaleY: 1, y: 0 }}
+                exit={{ opacity: 0, scaleY: 0.95, y: -6 }}
+                style={{ transformOrigin: 'top' }}
               >
                 <div className="rounded-2xl border border-border bg-card/60 p-5">
                   <div className="flex items-center justify-between mb-3">
@@ -269,13 +282,13 @@ export function HomePage() {
                     </div>
                     <span className="text-xs text-muted-foreground">Select the language of your contract</span>
                   </div>
-                  <div className="relative">
+                  <div className="relative" ref={langPickerRef}>
                     <button
                       onClick={() => setShowLangPicker(v => !v)}
                       className="w-full flex items-center justify-between px-4 py-2.5 rounded-xl border border-border bg-secondary/50 hover:bg-secondary transition-colors"
                     >
                       <span className="flex items-center gap-2.5">
-                        <span className="text-base">{lang.nativeName}</span>
+                        <span className="text-base font-indic">{lang.nativeName}</span>
                         <span className="text-sm text-muted-foreground">— {lang.name}</span>
                       </span>
                       <ChevronRight
@@ -289,7 +302,7 @@ export function HomePage() {
                           initial={{ opacity: 0, y: -8 }}
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: -8 }}
-                          className="absolute top-full mt-2 left-0 right-0 z-20 rounded-xl border border-border bg-popover shadow-xl overflow-hidden"
+                          className="absolute top-full mt-2 left-0 right-0 z-50 rounded-xl border border-border bg-popover shadow-2xl overflow-hidden"
                         >
                           <div className="grid grid-cols-2 gap-0.5 p-1.5 max-h-52 overflow-y-auto">
                             {SUPPORTED_LANGUAGES.map(l => (
@@ -301,7 +314,7 @@ export function HomePage() {
                                   lang.code === l.code && 'bg-primary/15 text-primary',
                                 )}
                               >
-                                <span className="text-sm font-medium">{l.nativeName}</span>
+                                <span className="text-sm font-medium font-indic">{l.nativeName}</span>
                                 <span className="text-xs text-muted-foreground">{l.name}</span>
                                 {lang.code === l.code && <Check size={11} className="ml-auto text-primary" />}
                               </button>

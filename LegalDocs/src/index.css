@@ -29,25 +29,25 @@
 
   .light {
     /* Light mode */
-    --background: 0 0% 100%;
+    --background: 210 20% 98%;
     --foreground: 222 47% 11%;
-    --card: 0 0% 98%;
+    --card: 0 0% 100%;
     --card-foreground: 222 47% 11%;
     --popover: 0 0% 100%;
     --popover-foreground: 222 47% 11%;
-    --primary: 250 84% 60%;
+    --primary: 250 84% 55%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 222 47% 11%;
-    --muted: 210 40% 96%;
-    --muted-foreground: 215 16% 47%;
-    --accent: 250 84% 60%;
+    --secondary: 210 30% 93%;
+    --secondary-foreground: 222 47% 20%;
+    --muted: 210 30% 93%;
+    --muted-foreground: 215 20% 40%;
+    --accent: 250 84% 55%;
     --accent-foreground: 0 0% 100%;
-    --destructive: 0 84% 60%;
+    --destructive: 0 84% 50%;
     --destructive-foreground: 0 0% 100%;
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 250 84% 60%;
+    --border: 214 24% 84%;
+    --input: 214 24% 84%;
+    --ring: 250 84% 55%;
   }
 }
 
@@ -61,17 +61,17 @@
   }
 
   /* Dark mode background gradient */
-  body:not(.light body) {
-    background-image: 
+  html:not(.light) body {
+    background-image:
       radial-gradient(ellipse at 20% 50%, rgba(120, 80, 255, 0.06) 0%, transparent 60%),
       radial-gradient(ellipse at 80% 20%, rgba(59, 130, 246, 0.04) 0%, transparent 60%);
   }
 
   /* Light mode background gradient */
-  .light body {
-    background-image: 
-      radial-gradient(ellipse at 20% 50%, rgba(120, 80, 255, 0.03) 0%, transparent 60%),
-      radial-gradient(ellipse at 80% 20%, rgba(59, 130, 246, 0.02) 0%, transparent 60%);
+  html.light body {
+    background-image:
+      radial-gradient(ellipse at 20% 50%, rgba(120, 80, 255, 0.04) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(59, 130, 246, 0.03) 0%, transparent 60%);
   }
 
   ::-webkit-scrollbar {
@@ -86,10 +86,33 @@
 }
 
 @layer utilities {
+  /* ── Indic font stack — all 22 official Indian languages ───────────────── */
+  .font-indic {
+    font-family:
+      'Noto Sans Devanagari',
+      'Noto Sans Tamil',
+      'Noto Sans Telugu',
+      'Noto Sans Bengali',
+      'Noto Sans Kannada',
+      'Noto Sans Gujarati',
+      'Noto Sans Gurmukhi',
+      'Noto Sans Malayalam',
+      'Noto Sans',
+      'Inter',
+      system-ui,
+      sans-serif;
+  }
+
+  /* ── Glassmorphism ─────────────────────────────────────────────────────── */
   .glass {
     background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.07);
+  }
+  html.light .glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 0, 0, 0.06);
   }
 
   .glass-hover {
@@ -99,37 +122,47 @@
     background: rgba(255, 255, 255, 0.06);
     border-color: rgba(255, 255, 255, 0.12);
   }
-
-  .risk-high {
-    @apply text-red-400 bg-red-500/10 border-red-500/30;
-  }
-  .risk-medium {
-    @apply text-amber-400 bg-amber-500/10 border-amber-500/30;
-  }
-  .risk-low {
-    @apply text-emerald-400 bg-emerald-500/10 border-emerald-500/30;
-  }
-  .risk-safe {
-    @apply text-emerald-400 bg-emerald-500/10 border-emerald-500/30;
+  html.light .glass-hover:hover {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(0, 0, 0, 0.1);
   }
 
+  /* ── Risk status colours ───────────────────────────────────────────────── */
+  /* Dark mode: lighter tints on dark bg */
+  .risk-high   { @apply text-red-400    bg-red-500/10     border-red-500/30; }
+  .risk-medium { @apply text-amber-500  bg-amber-500/10   border-amber-500/30; }
+  .risk-low    { @apply text-emerald-400 bg-emerald-500/10 border-emerald-500/30; }
+  .risk-safe   { @apply text-emerald-400 bg-emerald-500/10 border-emerald-500/30; }
+
+  /* Light mode: darker shades on white bg for readability */
+  html.light .risk-high   { @apply text-red-600    bg-red-50     border-red-200; }
+  html.light .risk-medium { @apply text-amber-700  bg-amber-50   border-amber-200; }
+  html.light .risk-low    { @apply text-emerald-700 bg-emerald-50 border-emerald-200; }
+  html.light .risk-safe   { @apply text-emerald-700 bg-emerald-50 border-emerald-200; }
+
+  /* ── Glow effects ──────────────────────────────────────────────────────── */
   .glow-primary {
-    box-shadow: 0 0 30px rgba(120, 80, 255, 0.2);
+    box-shadow: 0 0 30px rgba(120, 80, 255, 0.25);
   }
-  .glow-red {
-    box-shadow: 0 0 20px rgba(239, 68, 68, 0.3);
-  }
-  .glow-green {
-    box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+  html.light .glow-primary {
+    box-shadow: 0 4px 20px rgba(120, 80, 255, 0.2), 0 1px 4px rgba(0,0,0,0.08);
   }
 
+  /* ── Text gradient ─────────────────────────────────────────────────────── */
   .text-gradient {
+    background: linear-gradient(135deg, #7c3aed 0%, #2563eb 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  html:not(.light) .text-gradient {
     background: linear-gradient(135deg, #a78bfa 0%, #60a5fa 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
+  /* ── Gradient border (used by Card variant="bordered") ─────────────────── */
   .border-gradient {
     position: relative;
     background: hsl(var(--card));
@@ -146,19 +179,5 @@
     -webkit-mask-composite: xor;
     mask-composite: exclude;
     pointer-events: none;
-  }
-
-  .scan-line {
-    position: relative;
-    overflow: hidden;
-  }
-  .scan-line::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, rgba(120, 80, 255, 0.6), transparent);
-    animation: scan 2.5s ease-in-out infinite;
   }
 }

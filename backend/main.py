@@ -17,7 +17,7 @@ from services.segmenter import segment_into_clauses
 from services.classifier import classify_clause
 from services.explainer import generate_shap_tokens
 from services.rewriter import generate_rewrite
-from services.rag import get_precedents_for_clause, chat_with_document
+from services.rag import get_precedents_for_clause, chat_with_document, index_document_clauses, search_documents_semantic
 from services.conflict import detect_conflicts
 from services.exporter import generate_report
 
@@ -227,9 +227,17 @@ async def analyze_document(file: UploadFile = File(...), language: str = Form(..
         riskBreakdown=RiskBreakdown(**breakdown)
     )
     
-    # 7. Cache Result to disk
+    # 7. Cache result in MongoDB
     save_analysis_to_cache(file_hash, result)
-    
+
+    # 8. Index clause embeddings in ChromaDB for semantic search
+    try:
+        n = index_document_clauses(result.model_dump())
+        if n:
+            print(f"Indexed {n} clauses into ChromaDB document_clauses.")
+    except Exception as e:
+        print(f"Warning: ChromaDB indexing skipped: {e}")
+
     return result
 
 @app.post("/api/rewrite")
@@ -357,6 +365,29 @@ async def chat_interaction(req: ChatRequest):
     """Phase 4 Endpoint: RAG Chatbot"""
     reply = chat_with_document(req.message, req.context)
     return {"reply": reply}
+
+
+class SearchRequest(BaseModel):
+    query: str
+    top_k: int = 5
+
+@app.post("/api/search")
+async def semantic_search(req: SearchRequest):
+    """
+    Semantic search across all indexed document clauses via ChromaDB HNSW.
+    Documents are indexed automatically after each analysis.
+    Falls back to MongoDB scan if ChromaDB has no entries yet.
+    """
+    if not req.query.strip():
+        raise HTTPException(status_code=400, detail="Query cannot be empty.")
+
+    try:
+        results = search_documents_semantic(req.query, req.top_k)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Search failed: {str(e)}")
+
+    return {"query": req.query, "results": results}
+
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)

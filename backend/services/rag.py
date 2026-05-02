@@ -23,44 +23,173 @@ else:
 DATA_DIR = Path(__file__).parent.parent / "data"
 CHROMA_PATH = DATA_DIR / "chroma_db"
 
-# Chroma DB client (lazy initialization)
+# Chroma DB client and collections (lazy initialization)
 chroma_client = None
 precedents_collection = None
+document_clauses_collection = None  # For semantic document search
+
+def _get_chroma_client():
+    """Shared lazy-initialized ChromaDB persistent client."""
+    global chroma_client
+    if chroma_client is not None:
+        return chroma_client
+    CHROMA_PATH.mkdir(parents=True, exist_ok=True)
+    chroma_client = chromadb.PersistentClient(
+        path=str(CHROMA_PATH),
+        settings=Settings(anonymized_telemetry=False, allow_reset=True)
+    )
+    return chroma_client
 
 def get_chroma_collection():
-    """Lazy initialization of Chroma DB collection."""
-    global chroma_client, precedents_collection
-    
+    """Lazy initialization of the indian_precedents ChromaDB collection."""
+    global precedents_collection
     if precedents_collection is not None:
         return precedents_collection
-    
     try:
-        # Create data directory if it doesn't exist
-        CHROMA_PATH.mkdir(parents=True, exist_ok=True)
-        
-        # Initialize Chroma client with persistent storage
-        chroma_client = chromadb.PersistentClient(
-            path=str(CHROMA_PATH),
-            settings=Settings(
-                anonymized_telemetry=False,
-                allow_reset=True
-            )
-        )
-        
-        # Get or create collection for Indian legal precedents
-        precedents_collection = chroma_client.get_or_create_collection(
+        client = _get_chroma_client()
+        precedents_collection = client.get_or_create_collection(
             name="indian_precedents",
-            metadata={"hnsw:space": "cosine"}  # Use cosine similarity
+            metadata={"hnsw:space": "cosine"}
         )
-        
-        count = precedents_collection.count()
-        print(f"Chroma DB initialized successfully. Collection has {count} precedents.")
-        
+        print(f"ChromaDB precedents ready — {precedents_collection.count()} entries.")
         return precedents_collection
-        
     except Exception as e:
-        print(f"Chroma DB initialization error: {e}")
+        print(f"ChromaDB precedents init error: {e}")
         return None
+
+def get_document_clauses_collection():
+    """Lazy initialization of the document_clauses ChromaDB collection."""
+    global document_clauses_collection
+    if document_clauses_collection is not None:
+        return document_clauses_collection
+    try:
+        client = _get_chroma_client()
+        document_clauses_collection = client.get_or_create_collection(
+            name="document_clauses",
+            metadata={"hnsw:space": "cosine"}
+        )
+        print(f"ChromaDB document_clauses ready — {document_clauses_collection.count()} entries.")
+        return document_clauses_collection
+    except Exception as e:
+        print(f"ChromaDB document_clauses init error: {e}")
+        return None
+
+def index_document_clauses(analysis_result: dict) -> int:
+    """
+    Indexes all clauses of an analyzed document into the document_clauses
+    ChromaDB collection so they can be found via semantic search later.
+
+    Called automatically after a successful analysis.
+    Returns number of clauses indexed.
+    """
+    from services.embeddings import get_sentence_transformer
+    collection = get_document_clauses_collection()
+    if collection is None:
+        return 0
+
+    model = get_sentence_transformer()
+    if model is None:
+        return 0
+
+    doc_id   = analysis_result.get("documentId", "")
+    filename = analysis_result.get("fileName", "")
+    risk     = str(analysis_result.get("overallRiskScore", 0))
+    uploaded = analysis_result.get("uploadedAt", "")
+    lang     = analysis_result.get("language", {}) or {}
+    lang_name = lang.get("name", "English") if isinstance(lang, dict) else "English"
+
+    clauses = analysis_result.get("clauses", []) or []
+    if not clauses:
+        return 0
+
+    ids, documents, metadatas = [], [], []
+    for clause in clauses:
+        clause_id = clause.get("id", "")
+        text      = clause.get("text", "").strip()
+        if not text:
+            continue
+        unique_id = f"{doc_id}___{clause_id}"
+        ids.append(unique_id)
+        documents.append(text)
+        metadatas.append({
+            "documentId":    doc_id,
+            "fileName":      filename,
+            "clauseTitle":   clause.get("title", ""),
+            "riskLevel":     clause.get("riskLevel", "safe"),
+            "riskScore":     str(clause.get("riskScore", 0)),
+            "category":      clause.get("category", ""),
+            "overallRisk":   risk,
+            "uploadedAt":    uploaded,
+            "language":      lang_name,
+        })
+
+    if not ids:
+        return 0
+
+    try:
+        # Upsert so re-analyzing the same doc doesn't duplicate entries
+        embeddings = model.encode(documents).tolist()
+        collection.upsert(ids=ids, documents=documents, metadatas=metadatas, embeddings=embeddings)
+        print(f"Indexed {len(ids)} clauses from '{filename}' into document_clauses.")
+        return len(ids)
+    except Exception as e:
+        print(f"ChromaDB indexing error: {e}")
+        return 0
+
+def search_documents_semantic(query: str, top_k: int = 5) -> list[dict]:
+    """
+    Semantic search over all indexed document clauses using ChromaDB HNSW.
+    Returns top-K results grouped by document, with the best matching clause
+    snippet and relevance score.
+    """
+    from services.embeddings import get_sentence_transformer
+    collection = get_document_clauses_collection()
+    if collection is None or collection.count() == 0:
+        return []
+
+    model = get_sentence_transformer()
+    if model is None:
+        return []
+
+    try:
+        query_embedding = model.encode([query])[0].tolist()
+        results = collection.query(
+            query_embeddings=[query_embedding],
+            n_results=min(top_k * 3, collection.count()),  # Fetch more, then group
+            include=["documents", "metadatas", "distances"]
+        )
+    except Exception as e:
+        print(f"ChromaDB search error: {e}")
+        return []
+
+    # Group by document, keep best clause match per document
+    seen: dict[str, dict] = {}
+    ids_list      = results["ids"][0]
+    docs_list     = results["documents"][0]
+    metas_list    = results["metadatas"][0]
+    dists_list    = results["distances"][0]
+
+    for uid, text, meta, dist in zip(ids_list, docs_list, metas_list, dists_list):
+        # cosine distance [0,2] → relevance [0,1]
+        relevance = round(max(0.0, 1.0 - dist / 2.0), 3)
+        if relevance < 0.25:
+            continue
+        doc_id = meta.get("documentId", "")
+        if doc_id not in seen or relevance > seen[doc_id]["relevanceScore"]:
+            seen[doc_id] = {
+                "documentId":         doc_id,
+                "fileName":           meta.get("fileName", "Unknown"),
+                "overallRiskScore":   int(meta.get("overallRisk", 0)),
+                "uploadedAt":         meta.get("uploadedAt", ""),
+                "language":           meta.get("language", "English"),
+                "relevanceScore":     relevance,
+                "matchedClauseTitle": meta.get("clauseTitle", ""),
+                "matchedSnippet":     text[:200] + ("…" if len(text) > 200 else ""),
+                "matchedRiskLevel":   meta.get("riskLevel", "safe"),
+            }
+
+    ranked = sorted(seen.values(), key=lambda r: -r["relevanceScore"])
+    return ranked[:top_k]
 
 def get_precedents_for_clause(
     clause_text: str, 

@@ -80,3 +80,29 @@ docker-compose.override.yml
 
 # Antigravity AI workspace files
 .antigravityignore
+
+# ══════════════════════════════════════════════════════════════════════════════
+# ADDITIONAL PATTERNS (added v2.2)
+# ══════════════════════════════════════════════════════════════════════════════
+
+# HuggingFace Hub model snapshots (can be 400MB+)
+backend/.cache/huggingface/
+backend/hub/
+
+# pytest / coverage
+backend/.pytest_cache/
+backend/htmlcov/
+backend/.coverage
+backend/coverage.xml
+
+# Egg / build artefacts
+backend/*.egg-info/
+backend/dist/
+backend/build/
+
+# Vite build cache
+LegalDocs/.vite/
+
+# OS junk in subdirs
+**/Thumbs.db
+**/.DS_Store

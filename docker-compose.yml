@@ -1,0 +1,54 @@
+services:
+
+  # ── MongoDB ──────────────────────────────────────────────────────────────────
+  mongo:
+    image: mongo:7
+    container_name: nyaylens-mongo
+    restart: unless-stopped
+    volumes:
+      - mongo_data:/data/db
+    ports:
+      - "27017:27017"          # Expose for local debugging (remove in prod)
+
+  # ── FastAPI Backend ───────────────────────────────────────────────────────────
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: nyaylens-backend
+    restart: unless-stopped
+    env_file:
+      - ./backend/.env          # Copy backend/.env.example → backend/.env first
+    environment:
+      - MONGODB_URI=mongodb://mongo:27017/nyaylens   # Override to use service name
+    volumes:
+      - chroma_data:/app/data/chroma_db   # Persist ChromaDB between restarts
+      - hf_cache:/root/.cache/huggingface # Cache InLegalBERT weights
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mongo
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s        # Allow time for model download on first run
+
+  # ── React Frontend (Nginx) ────────────────────────────────────────────────────
+  frontend:
+    build:
+      context: ./LegalDocs
+      dockerfile: Dockerfile
+    container_name: nyaylens-frontend
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+
+volumes:
+  mongo_data:     # MongoDB persistent storage
+  chroma_data:    # ChromaDB vector store
+  hf_cache:       # HuggingFace model cache (avoids re-downloading InLegalBERT)
