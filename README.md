@@ -16,7 +16,7 @@ NyayaLens is a full-stack platform that ingests Indian legal contracts in any of
 <br/>
 
 <div align="center">
-  <video src="https://github.com/Samar23dev/NyayLens/raw/master/Files/demo.mp4" controls width="100%" style="border-radius: 10px;"></video>
+  <img src="Files/demo.gif" alt="NyayaLens Demo" width="100%" style="border-radius: 10px;">
 </div>
 
 </div>
